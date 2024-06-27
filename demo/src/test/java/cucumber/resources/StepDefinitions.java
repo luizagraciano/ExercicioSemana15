@@ -1,5 +1,6 @@
 package cucumber.resources;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import cucumber.pages.LoginPage;
@@ -48,6 +49,7 @@ public class StepDefinitions {
     public void usuario_deve_ser_redirecionado_para_pagina_de_secure_area() {
         this.securePage = new SecurePage(navegador);
         securePage.paginaCerta("https://the-internet.herokuapp.com/secure");
+        securePage.mensagemSucesso("flash", "You logged into a secure area!");
     }
 
     //Scenario Login com senha em branco
