@@ -53,13 +53,36 @@ public class StepDefinitions {
     //Scenario Login com senha em branco
     @When("Usuario nao preencher campo Password")
     public void usuario_nao_preencher_campo_password() {
-        loginPage.preencherId("password", null);
+        loginPage.preencherId("password", "");
     }
 
-    @Then("Usuario deve receber mensagem de erro")
-    public void usuario_deve_receber_mensagem_de_erro() {
-        //loginPage.
+    @Then("Usuario deve receber mensagem de senha invalida")
+    public void usuario_deve_receber_mensagem_de_senha_invalida() {
+        loginPage.mensagemErro("flash", "Your password is invalid!");
     }
+
+    //Scenario Login com usuario em branco
+    @When("Usuario nao preencher campo Username")
+    public void usuario_nao_preencher_campo_username() {
+        loginPage.preencherId("username", "");
+    }
+
+    @Then("Usuario deve receber mensagem de usuario invalido")
+    public void usuario_deve_receber_mensagem_de_usuario_invalido() {
+        loginPage.mensagemErro("flash", "Your username is invalid!");
+    }
+
+    //Scenario Login com senha incorreta
+    @When("Usuario preencher campo Password com senha incorreta")
+    public void usuario_preencher_campo_password_com_senha_incorreta() {
+        loginPage.preencherId("password", "123456789");
+    }
+
+    //Scenario Login com usuario incorreto
+    @When("Usuario preencher campo Username com usuario incorreto")
+    public void usuario_preencher_campo_username_com_usuario_incorreto() {
+        loginPage.preencherId("username", "usuarioteste");
+    }    
 
     @After
     public void tearDown(){
