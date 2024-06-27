@@ -12,9 +12,5 @@ public class SecurePage extends BasePage{
     public boolean paginaCerta(String urlEsperada){
         return navegador.getCurrentUrl().equals(urlEsperada);
     }
-
-    public void clicarXpath(String xpath){
-    navegador.findElement(By.xpath(xpath)).click();
-    }
     
 }
