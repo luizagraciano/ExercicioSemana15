@@ -23,6 +23,7 @@ public class StepDefinitions {
         navegador = Web.criarChrome();
     }
 
+    //Scenario Login com sucesso
     @Given("Usuario esteja na pagina de Login")
     public void usuario_esteja_na_pagina_de_login() {
         this.loginPage = new LoginPage(navegador);
@@ -47,6 +48,17 @@ public class StepDefinitions {
     public void usuario_deve_ser_redirecionado_para_pagina_de_secure_area() {
         this.securePage = new SecurePage(navegador);
         securePage.paginaCerta("https://the-internet.herokuapp.com/secure");
+    }
+
+    //Scenario Login com senha em branco
+    @When("Usuario nao preencher campo Password")
+    public void usuario_nao_preencher_campo_password() {
+        loginPage.preencherId("password", null);
+    }
+
+    @Then("Usuario deve receber mensagem de erro")
+    public void usuario_deve_receber_mensagem_de_erro() {
+        //loginPage.
     }
 
     @After
